@@ -196,6 +196,28 @@ function ambilDivisi(cabang){
     })
 }
 
+function ambilUser(){
+    $.ajax({
+        type: 'POST',
+        url: baseUrl+'/controllers/user.php?action=read',
+        dataType: 'json',
+        success: function (response) {
+            if(response.status == 'ok'){
+                let users = response.data
+                let options = ''
+                
+                users.forEach(user => {
+                    options += '<option value="'+user.iduser+'">'+user.fullname+' ( Divisi: '+user.nama_divisi+', '+user.nama_cabang+')</option>'
+                });
+
+                $('#peminjam').append(options)
+            }else{
+
+            }
+        }
+    })
+}
+
 function membuatDaftarRak(mulai, akhir, sublevel){
     let result = '';
 
@@ -301,6 +323,8 @@ $('#divisi').on('change', function(){
 })
 
 $(document).on('click', '#btn-pinjam-barang', function(){
+    ambilUser()
+
     let uuid_barang = $(this).data('id');
 
     $('#pinjam-barang').modal('show');
