@@ -229,10 +229,11 @@ function ambilPeminjaman(uuid_barang){
         success: function (response) {
             if(response.status == 'ok'){
                 let peminjaman = response.data
-                
-                console.log(peminjaman)
 
-                // $('#peminjam').append(options)
+                $('#kembali-peminjam').val(peminjaman.fullname)
+                $('#kembali-tanggal-pinjam').val(moment.unix(peminjaman.tanggal_pinjam).format('DD/MM/YYYY'))
+                $('#form-pengembalian-uuid-barang').val(peminjaman.uuid_barang)
+                $('#form-peminjaman-id').val(peminjaman.id_peminjaman)
             }else{
 
             }
@@ -359,7 +360,6 @@ $(document).on('click', '#btn-kembalikan-barang', function(){
     ambilPeminjaman(uuid_barang)
 
     $('#kembali-barang').modal('show');
-    // $('#form-uuid-barang').val(uuid_barang);
 });
 
 $('#submit-form-pinjam').on('click', function () {
@@ -390,6 +390,39 @@ $('#submit-form-pinjam').on('click', function () {
             }else{
                 $('#form-loading-pinjam').addClass('d-none');
                 $('#form-failed-pinjam').removeClass('d-none');
+            }
+        }
+    })
+})
+
+$('#submit-form-kembali').on('click', function () {
+    $('#form-loading-kembali').removeClass('d-none');
+
+    let id_peminjaman = $('#form-peminjaman-id').val()
+    let uuid_barang = $('#form-pengembalian-uuid-barang').val()
+    let tanggal_kembali = $('#tanggal-kembali').val()
+    
+    $.ajax({
+        type: 'POST',
+        url: baseUrl+'/controllers/barang.php?action=kembali',
+        data: {
+            id_peminjaman: id_peminjaman,
+            tanggal_kembali: tanggal_kembali,
+            uuid_barang: uuid_barang
+        },
+        dataType: 'json',
+        success: function (response) {
+            if(response.status == 'ok'){
+                $('#form-loading-kembali').addClass('d-none');
+                $('#form-success-kembali').removeClass('d-none');
+
+                setTimeout(function () {
+                    $('#kembali-barang').modal('hide');
+                    location.reload()
+                }, 1000)
+            }else{
+                $('#form-loading-kembali').addClass('d-none');
+                $('#form-failed-kembali').removeClass('d-none');
             }
         }
     })

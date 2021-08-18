@@ -113,6 +113,7 @@
                 </main>
                 <?php include './layout/modal_tambah_barang.php';?>
                 <?php include './layout/modal_keluar_barang.php';?>
+                <?php include './layout/modal_kembali_barang.php';?>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
@@ -132,6 +133,7 @@
         <script src="js/scripts.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
         <script src="js/pages/barang.js"></script>
     </body>
 </html>

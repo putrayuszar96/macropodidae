@@ -50,6 +50,18 @@ if($koneksi_berhasil == TRUE)
         }
 
         echo json_encode(['status' => $status]);
+    }else if($aksi == 'kembali'){
+        include '../models/peminjaman.php';
+
+        $insert = create_pengembalian($_POST);
+
+        if($insert == TRUE){
+            $status = 'ok';
+        }else{
+            $status = $insert['error'];
+        }
+
+        echo json_encode(['status' => $status]);
     }else{
 
     }

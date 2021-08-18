@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Form Keluar</h5>
+        <h5 class="modal-title" id="exampleModalCenterTitle">Form Kembali Barang</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -17,10 +17,19 @@
                   <div class="alert alert-warning d-none" id="form-loading-kembali">Mengupdate halaman...</div>
                 </div>
                 <div class="form-group col-12">
+                    <label for="kembali-peminjam">Peminjam</label>
+                    <input type="text" class="form-control" id="kembali-peminjam" disabled />
+                </div>
+                <div class="form-group col-12">
+                    <label for="kembali-tanggal-pinjam">Tanggal Pinjam</label>
+                    <input type="text" class="form-control" id="kembali-tanggal-pinjam" disabled />
+                </div>
+                <div class="form-group col-12">
                     <label for="tanggal-kembali">Tanggal Kembali</label>
                     <input type="date" class="form-control"  id="tanggal-kembali" />
                 </div>
-                <input type="hidden" id="form-uuid-barang" />
+                <input type="hidden" id="form-pengembalian-uuid-barang" />
+                <input type="hidden" id="form-peminjaman-id" />
             </div>
         </form>
       </div>
