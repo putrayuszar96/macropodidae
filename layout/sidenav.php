@@ -17,7 +17,7 @@
                 </a>
                 <div class="collapse" id="menu-gudang" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="langsa.php">KC Langsa</a>
+                        <a class="nav-link" href="#">KC Langsa</a>
                         <a class="nav-link" href="#">Kab. Aceh Tamiang</a>
                         <a class="nav-link" href="#">Kab. Aceh Timur</a>
                         <a class="nav-link" href="#">Kab. Aceh Tenggara</a>
