@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group col-12">
                     <label for="tanggal-pinjam">Tanggal Pinjam</label>
-                    <input type="date" class="form-control" />
+                    <input type="date" class="form-control"  id="tanggal-pinjam" />
                 </div>
                 <div class="form-group col-12">
                     <label for="peminjam">Peminjam</label>

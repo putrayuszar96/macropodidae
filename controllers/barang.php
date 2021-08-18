@@ -38,6 +38,18 @@ if($koneksi_berhasil == TRUE)
 
     }else if($aksi == 'delete'){
 
+    }else if($aksi == 'pinjam'){
+        include '../models/peminjaman.php';
+
+        $insert = create_peminjaman($_POST);
+
+        if($insert == TRUE){
+            $status = 'ok';
+        }else{
+            $status = $insert['error'];
+        }
+
+        echo json_encode(['status' => $status]);
     }else{
 
     }

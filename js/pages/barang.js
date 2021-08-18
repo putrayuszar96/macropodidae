@@ -218,6 +218,28 @@ function ambilUser(){
     })
 }
 
+function ambilPeminjaman(uuid_barang){
+    $.ajax({
+        type: 'POST',
+        url: baseUrl+'/controllers/peminjaman.php?action=read',
+        data: {
+            uuid_barang: uuid_barang
+        },
+        dataType: 'json',
+        success: function (response) {
+            if(response.status == 'ok'){
+                let peminjaman = response.data
+                
+                console.log(peminjaman)
+
+                // $('#peminjam').append(options)
+            }else{
+
+            }
+        }
+    })
+}
+
 function membuatDaftarRak(mulai, akhir, sublevel){
     let result = '';
 
@@ -329,6 +351,15 @@ $(document).on('click', '#btn-pinjam-barang', function(){
 
     $('#pinjam-barang').modal('show');
     $('#form-uuid-barang').val(uuid_barang);
+});
+
+$(document).on('click', '#btn-kembalikan-barang', function(){
+    let uuid_barang = $(this).data('id');
+
+    ambilPeminjaman(uuid_barang)
+
+    $('#kembali-barang').modal('show');
+    // $('#form-uuid-barang').val(uuid_barang);
 });
 
 $('#submit-form-pinjam').on('click', function () {
